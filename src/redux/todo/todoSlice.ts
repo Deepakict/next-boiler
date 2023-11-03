@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Todo} from '@/redux/todo/todoEpic';
 
-interface StateTodo {
+export interface StateTodo {
   todos: Array<Todo>;
   isLoading: boolean;
   error: string | undefined;
