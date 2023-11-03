@@ -1,5 +1,5 @@
-import React,{ ReactNode } from "react";
-import { LangTypes } from "../lang/Types/LangTypes";
+import React, {ReactNode} from 'react';
+import {LangTypes} from '../lang/Types/LangTypes';
 
 export interface ChildrenType {
   children: React.FunctionComponent;

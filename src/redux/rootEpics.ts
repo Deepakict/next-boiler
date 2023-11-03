@@ -1,6 +1,5 @@
-import { combineEpics } from "redux-observable";
-import { getDemoDataEpic } from "./demo/demoEpic";
-
+import {combineEpics} from 'redux-observable';
+import {getDemoDataEpic} from './demo/demoEpic';
 
 const epics = [getDemoDataEpic];
 

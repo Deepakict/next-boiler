@@ -1,5 +1,3 @@
-import { DemoActions } from "./demo/demoSlice";
+import {DemoActions} from './demo/demoSlice';
 
-
-export type RootActions =
-  | DemoActions;
+export type RootActions = DemoActions;
