@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {LangTypes} from '../lang/Types/LangTypes';
+import {LangTypes} from '@/lang/English/en';
 
 export interface ChildrenType {
   children: React.FunctionComponent;
@@ -9,7 +9,6 @@ export interface ProviderType {
 }
 export interface ContextType {
   appLanguage: string;
-  // eslint-disable-next-line no-unused-vars
   setAppLanguage: (lang: string) => void;
   translations: LangTypes;
 }

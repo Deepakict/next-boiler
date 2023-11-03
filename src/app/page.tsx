@@ -1,11 +1,11 @@
 'use client';
 import {LocalizationContext} from '@/lang/Localization/LocalizationProvider';
-import {getDemo} from '@/redux/demo/demoSlice';
+import {getTodos} from '@/redux/todo/todoSlice';
 import {RootState} from '@/redux/rootReducer';
 import Button from '@mui/material/Button';
 import {useRouter} from 'next/navigation';
-import {useEffect, useState, useContext} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useContext, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 interface Todo {
   userId: number;
@@ -15,29 +15,13 @@ interface Todo {
 }
 export default function Home() {
   const router = useRouter();
-  const [data, setData] = useState<Todo[]>([]);
   const {translations} = useContext(LocalizationContext);
   //only work on client
-  const {demoData} = useSelector((state: RootState) => state.demoReducer);
+  const {todos} = useSelector((state: RootState) => state.todosReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-    //     if (response.ok) {
-    //       const result: Todo[] = await response.json();
-    //       setData(result);
-    //     } else {
-    //       console.error('Failed to fetch data');
-    //     }
-    //   } catch (error) {
-    //     console.error('Error fetching data:', error);
-    //   }
-    // };
-
-    // fetchData();
-    dispatch(getDemo(''));
+    dispatch(getTodos());
   }, []);
 
   return (
@@ -49,8 +33,8 @@ export default function Home() {
       >
         {translations?.GO_TO}
       </Button>
-      {demoData.length > 0 ? (
-        demoData.map((item: Todo) => <p key={item.id}>{item.title}</p>)
+      {todos.length > 0 ? (
+        todos.map((item: Todo) => <p key={item.id}>{item.title}</p>)
       ) : (
         <p>Loading data...</p>
       )}

@@ -21,7 +21,7 @@ export function POST(request: NextRequest) {
 }
 
 //url variable
-export function DELETE(request: Request) {
+export function DELETE(_request: Request) {
   return NextResponse.json(
     {
       message: 'delete!!',

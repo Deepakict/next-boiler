@@ -1,9 +1,15 @@
 'use client';
-export default function pageError({error, reset}: any) {
+
+export interface ErrorProps {
+  error: string;
+  reset: string;
+}
+
+export default function pageError({error, reset}: ErrorProps) {
   return (
     <div>
       <h1>
-        Error is coming{error},{reset}c
+        Error is coming{error},{reset}
       </h1>
     </div>
   );

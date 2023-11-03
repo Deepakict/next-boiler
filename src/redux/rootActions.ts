@@ -1,3 +1,3 @@
-import {DemoActions} from './demo/demoSlice';
+import {TodoActions} from '@/redux/todo/todoSlice';
 
-export type RootActions = DemoActions;
+export type RootActions = TodoActions;

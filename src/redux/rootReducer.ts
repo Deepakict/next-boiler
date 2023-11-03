@@ -1,8 +1,8 @@
-import {demoReducer} from './demo/demoSlice';
+import {todosReducer} from '@/redux/todo/todoSlice';
 import {combineReducers} from '@reduxjs/toolkit';
 
 export const rootReducer = combineReducers({
-  demoReducer: demoReducer,
+  todosReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
