@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "yarn build:sass && next dev",
+    "build": "yarn build:sass && next build",
     "start": "next start",
+    "build:sass": "yarn sass src/styles/scss",
     "lint": "gts fix",
     "clean": "gts clean",
     "compile": "tsc",
@@ -13,7 +14,7 @@
     "prepare": "husky install",
     "pretest": "yarn run compile",
     "posttest": "yarn run lint",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "yarn build:sass && storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -49,6 +50,7 @@
     "gts": "5.2.0",
     "husky": "8.0.3",
     "prettier": "3.0.3",
+    "sass": "1.69.5",
     "storybook": "7.5.2",
     "typescript": "5.1.6"
   },

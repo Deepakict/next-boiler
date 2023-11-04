@@ -1,0 +1,14 @@
+@import '../base-styles/variables';
+@import '../base-styles/colors';
+@import '../../stories/style';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $theme_font !important;
+}
+
+body {
+  background-color: $themeBackgroundColor2 !important;
+}
