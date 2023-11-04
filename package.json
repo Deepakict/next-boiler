@@ -12,7 +12,9 @@
     "fix": "gts fix",
     "prepare": "husky install",
     "pretest": "yarn run compile",
-    "posttest": "yarn run lint"
+    "posttest": "yarn run lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
@@ -30,12 +32,29 @@
     "redux-observable": "2.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "7.5.2",
+    "@storybook/addon-interactions": "7.5.2",
+    "@storybook/addon-links": "7.5.2",
+    "@storybook/addon-onboarding": "1.0.8",
+    "@storybook/blocks": "7.5.2",
+    "@storybook/nextjs": "7.5.2",
+    "@storybook/react": "7.5.2",
+    "@storybook/testing-library": "0.2.2",
     "@types/lodash": "4.14.200",
     "@types/node": "20.8.2",
     "@types/react": "18",
     "@types/react-dom": "18",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-storybook": "0.6.15",
     "gts": "5.2.0",
     "husky": "8.0.3",
+    "prettier": "3.0.3",
+    "storybook": "7.5.2",
     "typescript": "5.1.6"
+  },
+  "resolutions": {
+    "strip-ansi": "6.0.0",
+    "string-width": "4.2.2",
+    "wrap-ansi": "7.0.0"
   }
 }
