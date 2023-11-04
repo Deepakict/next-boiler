@@ -33,7 +33,7 @@ async function getData(): Promise<Todo[] | undefined> {
   }
 }
 
-export const getDemoDataEpic: Epic<
+export const fetchTodosFromApi: Epic<
   RootActions,
   RootActions,
   RootState

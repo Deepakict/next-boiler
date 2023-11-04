@@ -1,8 +1,12 @@
 import axios, {AxiosError, AxiosRequestHeaders, AxiosResponse} from 'axios';
 import {debugLog} from './Logger';
 import {ApiEndPoints} from '@/factory/api-endpoints';
+import {Env} from '@/utils/Env';
 
 const TAG = 'NetworkOps: ';
+
+const baseURL = Env.baseUrl,
+  isServer = typeof window === 'undefined';
 
 export interface CustomAxiosResponse extends AxiosResponse {
   data: {
@@ -37,11 +41,21 @@ function getCommonHeaders() {
 
 const API_TIMEOUT = 25000;
 const instance = axios.create({
+  baseURL,
   timeout: API_TIMEOUT,
 });
 
 instance.interceptors.request.use(
-  config => {
+  async config => {
+    if (isServer) {
+      const {cookies} = await import('next/headers'),
+        token = cookies().get('token')?.value;
+
+      if (token) {
+        config.headers['Authorization'] = `Bearer ${token}`;
+      }
+    }
+
     let newConfig = config;
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const url = config.url!;

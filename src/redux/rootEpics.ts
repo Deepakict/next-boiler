@@ -1,6 +1,6 @@
 import {combineEpics} from 'redux-observable';
-import {getDemoDataEpic} from '@/redux/todo/demoEpic';
+import {fetchTodosFromApi} from '@/redux/todo/todoEpic';
 
-const epics = [getDemoDataEpic];
+const epics = [fetchTodosFromApi];
 
 export const rootEpic = combineEpics(...epics);
